@@ -53,7 +53,7 @@ Probeer de unit test te runnen, je zult zien dat het niet compileert omdat de cl
 ## Oefening 4: Een eigen exception maken (Red)
 Voeg aan src/main/java aan het bestaande package een nieuwe class toe ```NegativeInputException``` en laat deze overerven van de class ```Exception```. Deze superklasse is een zogenaamde _"checked exception"_, dat betekent dat als je die ergens gooit (hiervoor gebruik je het keyword ```throw```) je aan alle aanroepers van die functie moet laten weten dat die exception mogelijk kan optreden (hiervoor gebruik je het keyword ```throws```), de aanroeper moet vervolgens kiezen of die exception gevangen hiervoor gebruik je het keyword ```try``` en ```catch``` gaat worden en/of doorgegooid naar een volgende aanroeper.
 
-Run nu de unit test uit oefening 3. Het zal compileren, maar de implementatie matcht nog niet. 
+Run nu de unit test uit oefening 3. Het zal nog niet compileren want in de execute methode wordt er nog geen exception gegooid. 
 
 ## Oefening 5: Een eigen exception gooien (Green)
 Pas de implementatie van de execute methode aan dat er een nieuwe instantie van ```NegativeInputException``` gecreëerd en gegooid wordt als de input kleiner is dan 0. Omdat het een checked exception is moet je ook de methode-declaratie aanpassen:
