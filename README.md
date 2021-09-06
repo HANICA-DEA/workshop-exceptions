@@ -62,7 +62,7 @@ Pas de implementatie van de execute methode aan dat er een nieuwe instantie van 
 public String execute(int i) throws NegativeInputException {
 ```
 
-Run nu de unit test nog een keer en check dat hij groen is. 
+Zorg dat in de overige test cases een try-catch blok om de aanroep van execute staat en plaats in de catch een aanroep van fail(). Run nu de unit test nog een keer en check dat hij groen is. 
 
 ## Oefening 6: JUnit assertTrows gebruiken (Refactor)
 De test uit oefening 3 heeft zo zijn beperkingen, gelukkig heeft JUnit een handige assertThrows die dat oplost. Pas de unit test aan:
