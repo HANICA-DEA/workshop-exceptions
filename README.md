@@ -106,7 +106,7 @@ void executeWithNegativeIntTest() {
     }); 
     
     // Assert
-    assertEquals(ex.getMessage(), "Input should be a positive integer");  
+    assertEquals("Input should be a positive integer", ex.getMessage());  
 }
 ```
 
