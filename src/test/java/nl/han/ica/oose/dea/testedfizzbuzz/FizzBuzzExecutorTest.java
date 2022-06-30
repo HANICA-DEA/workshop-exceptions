@@ -72,6 +72,6 @@ class FizzBuzzExecutorTest {
         });
 
         // Assert
-        assertEquals("Input should be a positive integer", ex.getMessage());
+        assertEquals(ex.getMessage(), "Input should be a positive integer");
     }
 }
