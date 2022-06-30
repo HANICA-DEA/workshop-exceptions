@@ -13,7 +13,7 @@ Ga naar https://github.com/HANICA-DEA/voorbereiding-junit/tree/uitwerking. Downl
 ## Oefening 1: Red, Green
 Run de bestaande tests vanuit IntelliJ en check dat ze groen zijn, doe dit daarna nog een keer vanuit de command-line met Maven. Voeg nu een nieuwe test toe die een lege String terug geeft als de input kleiner is dan 0, bijvoorbeeld -1:
 
-```java
+```
 @Test
 void executeWithNegativeIntTest() {
     // Arrange
@@ -34,7 +34,7 @@ Alle asserts (de 3e A van de AAA-aanpak) zitten als static methode in de ```Asse
 ## Oefening 3: Een eigen exception verwachten in een testcase (Red)
 Wijzig de laatst toegevoegde testcase, in plaats van een lege String te returnen verwachten we nu dat in dat geval een exception van het type ```NegativeInputException``` gegooid wordt:
 
-```java
+```
 @Test
 void executeWithNegativeIntTest() {
     // Arrange
@@ -48,26 +48,26 @@ void executeWithNegativeIntTest() {
 }
 ```
 
-Probeer de unit test te runnen, je zult zien dat het niet compileert omdat de class `NegativeInputException` nog niet bestaat. Dit gaan we rechtzetten in de volgende stap. Maar er is meer aan de hand, er staat namelijk geen assert in! Op zich werkt het (sort of...), want de test case faalt als er geen exception optreedt en slaagt als hij wel optreedt. Misschien is deze laatste zin wel begrijpelijk, maar de code moet je waarschijnlijk meerdere keren lezen om te snappen wat er gebeurt. We gaan in deze TDD-cyclus eerst naar groen en kijken later of dit mooier kan door te refactoren. 
+Probeer de unit test te runnen, je zult zien dat het niet compileert omdat de class ```NegativeInputException``` nog niet bestaat. Dit gaan we rechtzetten in de volgende stap. Maar er is meer aan de hand, er staat namelijk geen assert in! Op zich werkt het (sort of...), want de test case faalt als er geen exception optreedt en slaagt als hij wel optreedt. Misschien is deze laatste zin wel begrijpelijk, maar de code moet je waarschijnlijk meerdere keren lezen om te snappen wat er gebeurt. We gaan in deze TDD-cyclus eerst naar groen en kijken later of dit mooier kan door te refactoren. 
 
 ## Oefening 4: Een eigen exception maken (Red)
-Voeg in `src/main/java` aan het bestaande package een nieuwe class toe `NegativeInputException` en laat deze overerven van de class `Exception`. Deze superklasse is een zogenaamde _"checked exception"_, dat betekent dat als je die ergens gooit (hiervoor gebruik je het keyword ```throw```) je aan alle aanroepers van die functie moet laten weten dat die exception mogelijk kan optreden (hiervoor gebruik je het keyword `throws`), de aanroeper moet vervolgens kiezen of die exception gevangen hiervoor gebruik je het keyword `try` en `catch` gaat worden en/of doorgegooid naar een volgende aanroeper.
+Voeg aan src/main/java aan het bestaande package een nieuwe class toe ```NegativeInputException``` en laat deze overerven van de class ```Exception```. Deze superklasse is een zogenaamde _"checked exception"_, dat betekent dat als je die ergens gooit (hiervoor gebruik je het keyword ```throw```) je aan alle aanroepers van die functie moet laten weten dat die exception mogelijk kan optreden (hiervoor gebruik je het keyword ```throws```), de aanroeper moet vervolgens kiezen of die exception gevangen hiervoor gebruik je het keyword ```try``` en ```catch``` gaat worden en/of doorgegooid naar een volgende aanroeper.
 
 Run nu de unit test uit oefening 3. Het zal nog niet compileren want in de execute methode wordt er nog geen exception gegooid. 
 
 ## Oefening 5: Een eigen exception gooien (Green)
-Pas de implementatie van de execute methode aan dat er een nieuwe instantie van `NegativeInputException` gecreëerd en gegooid wordt als de input kleiner is dan 0. Omdat het een checked exception is moet je ook de methode-declaratie aanpassen:
+Pas de implementatie van de execute methode aan dat er een nieuwe instantie van ```NegativeInputException``` gecreëerd en gegooid wordt als de input kleiner is dan 0. Omdat het een checked exception is moet je ook de methode-declaratie aanpassen:
 
-```java
+```
 public String execute(int i) throws NegativeInputException {
 ```
 
-Zorg dat in de overige test cases een try-catch blok om de aanroep van execute staat en plaats in de catch een aanroep van fail(). Zet ook een try-catch blok om de execute aanroep in de `FizzBuzzRunner`. Run nu de unit test nog een keer en check dat hij groen is. 
+Zorg dat in de overige test cases een try-catch blok om de aanroep van execute staat en plaats in de catch een aanroep van fail(). Zet ook een try-catch blok om de execute aanroep in de ```FizzBuzzRunner```. Run nu de unit test nog een keer en check dat hij groen is. 
 
 ## Oefening 6: JUnit assertTrows gebruiken (Refactor)
 De test uit oefening 3 heeft zo zijn beperkingen, gelukkig heeft JUnit een handige assertThrows die dat oplost. Pas de unit test aan:
 
-```java
+```
 @Test
 void executeWithNegativeIntTest() {
     // Arrange
@@ -94,7 +94,7 @@ We hebben tot nu toe vooral het type gecheckt maar wat als je specifiek wil kijk
 
 Wijzig de testcase:
 
-```java
+```
 @Test
 void executeWithNegativeIntTest() {
     // Arrange
@@ -112,14 +112,14 @@ void executeWithNegativeIntTest() {
 
 Run de testcase, deze faalt want de exception message is leeg. 
 
-Voeg aan `NegativeInputException` een constructor toe die een `String message` als parameter meekrijgt en roep in de constructor de constructor van de superklasse aan en geef daar de waarde van message aan mee. Wijzig in de execute methode de creatie van de exception door de String "Input should be a positive integer" mee te geven. Run de testcase opnieuw, die wordt groen.
+Voeg aan ```NegativeInputException``` een constructor toe die een ```String message``` als parameter meekrijgt en roep in de constructor de constructor van de superklasse aan en geef daar de waarde van message aan mee. Wijzig in de execute methode de creatie van de exception door de String "Input should be a positive integer" mee te geven. Run de testcase opnieuw, die wordt groen.
 
 ## Afronding
 
 In deze workshop heb je kennis gemaakt met:
 * assertThrows
 * het maken van eigen exceptions met verschillende superklassen (checked en unchecked)
-* de keywords `try, catch, throw, throws`
+* de keywords ```try, catch, throw, throws```
 * het checken van eventuele eigenschappen van een exception, bijvoorbeeld de message
 
 
