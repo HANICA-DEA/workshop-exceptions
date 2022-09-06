@@ -2,13 +2,13 @@
 Deze oefening is deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen. Doel is het bekend raken met exceptions in het bijzonder bij het schrijven van unit tests voor code die exceptions kan gooien.
 
 # Oefeningen
-In deze oefening ga je verder met de FizzBuzz kata die je al in twee stappen hebt ontwikkeld:
+In deze oefening ga je verder met de FizzBuzz kata die je al in twee stappen hebt ontwikkeld. Je kunt (zie kopje voorbereiding) gebruik maken van de uitwerking die beschikbaar is. We gaan de FizzBuzz voor de 3e keer doen:
 1. De eerste keer was het schrijven van de methode om Java-kennis wat op te halen.
 2. De tweede keer was het schrijven van de methode in stapjes, ondersteund door unit tests en gebruik makend van Maven. Een mogelijke uitwerking hiervan vind je op https://github.com/HANICA-DEA/voorbereiding-junit/tree/uitwerking. 
 3. Deze derde keer leer je hoe je om moet gaan met randgevallen zoals de aanroep van de methode met een negatief getal of een te hoog getal.
 
 ## Voorbereiding
-Ga naar https://github.com/HANICA-DEA/voorbereiding-junit/tree/uitwerking. Download de zip of gebruik git om het gehele project te downloaden (```git clone```) naar je computer en open dit project in IntelliJ.
+Ga naar https://github.com/HANICA-DEA/voorbereiding-junit/tree/uitwerking. Download de zip of gebruik git om het gehele project te downloaden (```git clone```) naar je computer en open dit project in IntelliJ. Als je git op de command line gebruikt, selecteer dan wel de goede branch met de uitwerking (```git checkout uitwerking```).
 
 ## Oefening 1: Red, Green
 Run de bestaande tests vanuit IntelliJ en check dat ze groen zijn, doe dit daarna nog een keer vanuit de command-line met Maven. Voeg nu een nieuwe test toe die een lege String terug geeft als de input kleiner is dan 0, bijvoorbeeld -1:
